@@ -66,20 +66,13 @@ extension FileScanner {
                 .flatMap { try $0.children() }
         }
 
-        switch limit {
-        case 0:
-            return [path]
-        case 1:
-            return try [path] + path.children()
-        default:
-            var paths: [Path] = [path]
-            var cursors: [Path] = paths
-            try (0..<limit).forEach { _ in
-                let childrenPaths = try descend(from: cursors)
-                paths.append(contentsOf: childrenPaths)
-                cursors = childrenPaths
-            }
-            return paths
+        var paths: [Path] = [path]
+        var cursors: [Path] = paths
+        try (0..<limit).forEach { _ in
+            let childrenPaths = try descend(from: cursors)
+            paths.append(contentsOf: childrenPaths)
+            cursors = childrenPaths
         }
+        return paths
     }
 }
