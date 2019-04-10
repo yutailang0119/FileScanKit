@@ -72,8 +72,12 @@ extension FileScanner {
         case 1:
             return try [path] + path.children()
         default:
-            let paths: [Path] = try (0..<limit).reduce(into: [path]) { paths, _ in
-                paths.append(contentsOf: try descend(from: paths))
+            var paths: [Path] = [path]
+            var cursors: [Path] = paths
+            try (0..<limit).forEach { _ in
+                let childrenPaths = try descend(from: cursors)
+                paths.append(contentsOf: childrenPaths)
+                cursors = childrenPaths
             }
             return paths
         }
