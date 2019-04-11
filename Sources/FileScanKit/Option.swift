@@ -19,7 +19,7 @@ extension Option {
         self.init(
             recursion: recursion,
             fileExtension: fileExtension,
-            ignorePaths: ignorePaths.map(Path.init(_:))
+            ignorePaths: ignorePaths.map(Path.init(_:)).filter { $0.exists }
         )
     }
 }
