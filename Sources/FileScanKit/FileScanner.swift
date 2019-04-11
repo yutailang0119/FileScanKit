@@ -54,6 +54,7 @@ extension FileScanner {
                 !option.ignorePaths
                     .contains(where: { path.absolute().string.hasPrefix($0.absolute().string ) })
             }
+            .sorted()
             .compactMap { URL(fileURLWithPath: $0.absolute().string) }
 
         return .success(Array(urls))
