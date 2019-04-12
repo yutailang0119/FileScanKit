@@ -33,7 +33,7 @@ public struct FileScanner {
 
 extension FileScanner {
     private func scanFile() -> URL {
-        return URL(fileURLWithPath: path.absolute().string)
+        return path.absolute().url
     }
 
     private func scanDirecotry(with option: Option) -> Result<[URL], Error> {
@@ -55,7 +55,7 @@ extension FileScanner {
                     .contains(where: { path.absolute().string.hasPrefix($0.absolute().string ) })
             }
             .sorted()
-            .compactMap { URL(fileURLWithPath: $0.absolute().string) }
+            .map { $0.absolute().url }
 
         return .success(Array(urls))
     }
