@@ -1,0 +1,29 @@
+branches:
+  only:
+    - master
+
+language: generic
+matrix:
+  include:
+    - &swiftpm_darwin
+      name: SwiftPM / Darwin / Swift 5.0
+      os: osx
+      osx_image: xcode10.2
+      script: swift test
+    - &swiftpm_linux
+      name: SwiftPM / Linux / Swift 5.0
+      os: linux
+      sudo: required
+      dist: trusty
+      env:
+        - SWIFT_VERSION=5.0
+      before_install:
+        - eval "$(curl -sL https://gist.githubusercontent.com/kylef/5c0475ff02b7c7671d2a/raw/9f442512a46d7a2af7b850d65a7e9bd31edfb09b/swiftenv-install.sh)"
+      script: swift test
+    - <<: *swiftpm_linux
+      name: SwiftPM / Linux / Swift Trunk Development
+      env:
+        - SWIFT_VERSION=DEVELOPMENT-SNAPSHOT-2019-04-16-a
+
+notifications:
+  email: false
