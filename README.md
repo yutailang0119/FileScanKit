@@ -1,7 +1,7 @@
 # FileScanKit
 
 <p align="left">
-<a href="https://developer.apple.com/swift"><img alt="Swift 5.0" src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat"/></a>
+<a href="https://developer.apple.com/swift"><img alt="Swift 5.3" src="https://img.shields.io/badge/Swift-5.3-orange.svg?style=flat"/></a>
 <a href="https://swift.org/package-manager/"><img alt="Swift Package Manager" src="https://img.shields.io/badge/Swift_Package_Manager-compatible-green.svg?style=flat"/></a>
 <a href="https://github.com/yutailang0119/ProgressSpinnerKit/blob/master/LICENSE"><img alt="Lincense" src="https://img.shields.io/badge/license-MIT-black.svg?style=flat"/></a>
 </p>
@@ -24,15 +24,15 @@ Main use case is to be used with [SwiftSyntax](https://github.com/apple/swift-sy
 
 ## Requirements
 
-* Swift 5.0+  
-* Xcode 10.2+  
+* Swift 5.3+
+* Xcode 12.4+
 
 ## Installation
 
 ### [Swift Package Manager](https://swift.org/package-manager/)
 
 ```swift
-// swift-tools-version:5.0
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
