@@ -51,7 +51,7 @@ let package = Package(
 
 https://github.com/apple/swift-package-manager  
 
-## Usege
+## Usage
 
 ```swift
 import Foundation
